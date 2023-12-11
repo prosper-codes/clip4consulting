@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DISCOVER NOW</title>  
+    <style>
+         body {
+            background-color: black;
+            color: red;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            text-align: center;
+            font-size: 5em; /* Adjust the font size as needed */
+            margin-bottom: 20px; 
+
+        }
+
+         h2 {
+            text-align: center;
+            font-size: 3em; /* Adjust the font size as needed */
+            margin-bottom: 20px; /* Add some space between headings and images */
+        }
+
+        /* Style to create a simple two-column layout */
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .image-container img {
+            width: 80%; /* Make images slightly smaller */
+            margin-bottom: 10px;
+        }
+
+        @media (min-width: 600px) {
+            .image-container img {
+                width: 48%; /* Two images in a row for screens wider than 600px */
+            }
+            .home-button {
+            display: block;
+            margin: 10px auto; /* Center the button */
+            padding: 10px 20px;
+            background-color: grey; /* Change button color to grey */
+            color: black;
+            text-align: center;
+            text-decoration: none;
+            font-size: 2rem; /* Adjust the font size to 2rem */
+            border: none;
+            cursor: pointer;
+        }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="home-button">Home</a>
+    <h1>Our Work</h1>
+
+    <h2>PAST EVENTS</h2>
+
+    <div class="image-container">
+        <img src="images/pe1.jpg" alt="Event 1">
+        <img src="images/pe62k23.jpg" alt=Event 2">
+        <img src="images/pe4.jpg" alt="Event 3">
+        <img src="images/pe2.jpg" alt="Event 4">
+    </div>
+
+    <h2>SAMPLE PLANS</h2>
+
+    <div class="image-container">
+        <img src="images/Baplan1.png" alt="Plan 1">
+        <img src="images/POPUP 3SEP.png" alt="Plan 2">
+        <img src="images/P SUN ENTRY MAN.png" alt="Plan 3">
+        <img src="images/U'R SITE.png "alt="ur site plan">
+    </div>
+
+    <h2>ON SITE</h2>
+
+    <div class="image-container">
+        <img src="images/ceo1.jpg" alt="Written 1">
+        <img src="images/ceo5.jpg" alt="Written 2">
+        <img src="images/ceo3.jpg" alt="Written 3">
+        <img src="images/ceo4.jpg" alt="Written 4">
+    </div>
+
+</body>
+</html>
