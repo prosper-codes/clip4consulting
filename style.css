@@ -650,12 +650,19 @@ background-color: #5f0303;
 .contact-details {
   display: flex;
   margin-bottom: 8rem;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  justify-content: space-between; /* Distribute space between items */
+  gap: 10px; /* Adjust space between elements */
 }
 
 .contact-details div {
   width: 25rem;
   text-align: center;
   margin: 4rem;
+  flex: 1 1 30%; /* Ensure that items can shrink and wrap in smaller screens */
+  box-sizing: border-box; /* Make sure padding doesn't overflow */
+  border: 1px solid #ddd;
+  border-radius: 8px;
 }
 
 .contact-details i {
@@ -681,6 +688,38 @@ background-color: #5f0303;
   text-transform: uppercase;
   margin-bottom: 3rem;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .contact-details {
+    flex-direction: column; /* Stack the items vertically on smaller screens */
+    align-items: center; /* Center the items */
+    margin-bottom: 5rem; /* Reduce the bottom margin for better mobile fit */
+  }
+
+  .contact-details div {
+    flex: 1 1 100%; /* Allow each item to take up full width on mobile */
+    margin: 1.5rem 0; /* Adjust the margin for better fit on mobile */
+    min-width: 0; /* Prevent overflow */
+  }
+
+  .contact-details i {
+    font-size: 3.5rem; /* Adjust icon size on smaller screens */
+  }
+
+  .contact-details h3 {
+    font-size: 2rem; /* Slightly smaller font size for headings */
+  }
+
+  .contact-details p {
+    font-size: 1.4rem; /* Adjust paragraph font size for better readability */
+  }
+
+  .contact-wrapper h1 {
+    font-size: 3.5rem; /* Reduce heading size on smaller screens */
+  }
+}
+
 
 .contact-form {
   width: 70rem;
