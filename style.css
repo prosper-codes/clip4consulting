@@ -1049,8 +1049,18 @@ background-color: #5f0303;
 #form-response.success {
   color: green;
   font-size: 5 rem;
+
+
+
+  
 }
 #form-response.error {
   color: red;
   font-size: 5 rem;
+}
+input, textarea, button {
+  width: 100%; /* Ensures form elements don't overflow */
+  padding: 12px;
+  margin-bottom: 10px;
+  box-sizing: border-box; /* Prevents padding from increasing the element's width */
 }
