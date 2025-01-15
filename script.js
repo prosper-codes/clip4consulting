@@ -16,6 +16,10 @@ document.querySelector('.home-link a').addEventListener('click', (e) => {
   e.preventDefault(); // Prevent default anchor behavior
   location.reload();  // Refresh the page
 });
+menu.addEventListener("click", () => {
+  navbar.classList.toggle("change"); // Toggle the 'change' class for visibility and animation
+  menu.classList.toggle("change");
+});
 // Section 2: Video Controls
 const video = document.querySelector(".video");
 const btn = document.querySelector(".buttons button i");
