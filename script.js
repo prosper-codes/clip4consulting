@@ -1,12 +1,21 @@
 // Navbar Toggle for Mobile View
-const menu = document.querySelector(".menu");
-const navbar = document.querySelector(".navbar");
+const menu = document.querySelector('.menu');
+const navbar = document.querySelector('.navbar');
+const navLinks = document.querySelectorAll('.nav-links li a');
 
-menu.addEventListener("click", () => {
-  navbar.classList.toggle("change"); // Toggle the 'change' class for visibility and animation
-  menu.classList.toggle("change");
+
+// Close the menu when any navigation link is clicked
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navbar.classList.remove('change'); // Close menu if open
+  });
 });
 
+// Refresh the page when the "Go to Home" link is clicked
+document.querySelector('.home-link a').addEventListener('click', (e) => {
+  e.preventDefault(); // Prevent default anchor behavior
+  location.reload();  // Refresh the page
+});
 // Section 2: Video Controls
 const video = document.querySelector(".video");
 const btn = document.querySelector(".buttons button i");
