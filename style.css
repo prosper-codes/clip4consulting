@@ -1298,3 +1298,17 @@ button:hover {
   }
 }
 
+/* Hide the "Go to Home" link by default */
+.home-link {
+  display: none; /* This makes it hidden on larger screens */
+}
+
+/* Show the "Go to Home" link on smaller screens only */
+@media (max-width: 768px) {
+  .home-link {
+    display: block; /* Show it on screens smaller than 768px */
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+
