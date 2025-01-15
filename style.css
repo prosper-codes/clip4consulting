@@ -1064,3 +1064,74 @@ input, textarea, button {
   margin-bottom: 10px;
   box-sizing: border-box; /* Prevents padding from increasing the element's width */
 }
+/* General form container styles */
+.contact-form-container {
+  width: 100%;
+  max-width: 600px;  /* Maximum width to avoid stretching too wide on large screens */
+  margin: 0 auto;  /* Center the form */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Styling the form */
+.contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+  gap: 15px;
+}
+
+/* Input fields and textarea styling */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;  /* Spacing between fields */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+textarea {
+  min-height: 120px;  /* Ensures a minimum height for the textarea */
+}
+
+/* Button styling */
+button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  .contact-form-container {
+    padding: 10px;  /* Adjust padding on smaller screens */
+  }
+
+  input, textarea, button {
+    font-size: 14px; /* Smaller font size for better mobile view */
+  }
+
+  /* Adjust the button for a more mobile-friendly appearance */
+  button {
+    width: 100%;  /* Make the button fill the available width on small screens */
+  }
+}
+
+/* Hide the form response initially */
+#form-response {
+  display: none;
+  margin-top: 15px;
+  font-size: 16px;
+  color: green;
+}
