@@ -5,88 +5,299 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DISCOVER NOW</title>  
     <style>
-         body {
-            background-color: black;
-            color: red;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        h1{
-            text-align: center;
-            font-size: 5em; /* Adjust the font size as needed */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(45deg, #2e2e2e, #121212); /* Dark gray to black */
+    }
+    50% {
+        background: linear-gradient(45deg, #1a1a2e, #3e3e4a); /* Deep navy to dark slate */
+    }
+    100% {
+        background: linear-gradient(45deg, #2e2e2e, #121212);
+    }
+}
+
+body {
+    animation: gradientAnimation 15s ease infinite;
+    background-size: 400% 400%; /* Ensures smooth transition */
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+        h1 {
+    text-align: center;
+    font-size: 5em; /* Adjust the font size as needed */
+    margin-bottom: 20px;
+    color: #f1eeee; /* Warm color for a vibrant look */
+    font-family: 'Arial', sans-serif; /* Font for a clean and modern look */
+    font-weight: 700; /* Bold weight for prominence */
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    letter-spacing: 2px; /* Slight letter spacing for a refined look */
+    text-transform: uppercase; /* Uppercase letters for added impact */
+ /* Change text color */
+            border-bottom: 4px solid #ff6347; /* Red underline with 4px thickness */
+            padding-bottom: 10px; /* Add some space below the text */
             margin-bottom: 20px; 
+}
 
+h2 {
+    text-align: center;
+    font-size: 3em; /* Adjust the font size as needed */
+    margin-bottom: 20px;
+    color: #ae8b69; /* Complementary orange color */
+    font-family: 'Arial', sans-serif; /* Matching font to h1 for consistency */
+    font-weight: 600; /* Slightly lighter than h1 but still bold */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    letter-spacing: 1.5px; /* More letter spacing for visual appeal */
+    text-transform: uppercase;
+     /* Uppercase letters for consistency */
+}
+h1 {
+          /* Space below the heading */
         }
 
-         h2 {
+
+        /* Card Container */
+        .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 20px 0;
+    }
+
+    /* Card Style */
+    .card {
+        background-color: #222;
+        color: #fff;
+        width: 280px;
+        margin: 15px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.05); /* Zoom in effect */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8); /* Stronger shadow on hover */
+    }
+
+    .card img, .card video {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        transition: transform 0.3s ease; /* Smooth zoom for the image */
+    }
+
+    .card:hover img, .card:hover video {
+        transform: scale(1.1); /* Zoom in image/video */
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .card h3 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        color: #ff6347; /* Add a pop of color for titles */
+    }
+
+    .card p {
+        font-size: 1em;
+        color: #bbb;
+    }
+
+        .home-button {
+    display: block;
+    margin: 20px auto; /* Center the button */
+    padding: 6px 12px; /* Reduced horizontal padding to make button shorter *//* Increase padding for better spacing */
+    background: linear-gradient(to right, #9b0e0e, #7a1010);; /* Gradient background */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold; /* Make the text bold */
+    border: 3px solid transparent; /* Transparent border for hover effect */
+    border-radius: 30px; /* Rounded corners for a sleek look */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.home-button:hover {
+    background: linear-gradient(45deg, #f79, #f06); /* Reverse the gradient on hover */
+    color: #fff; /* Keep text white on hover */
+    transform: translateY(-4px); /* Slightly lift the button */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow on hover for a floating effect */
+}
+
+.home-button:active {
+    transform: translateY(0); /* Pressed effect when clicked */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly reduce the shadow */
+}
+
+
+        /* About CEO Section */
+        #about-ceo {
+            background-color: #333;
+            color: white;
+            padding: 40px 20px;
             text-align: center;
-            font-size: 3em; /* Adjust the font size as needed */
-            margin-bottom: 20px; /* Add some space between headings and images */
         }
 
-        /* Style to create a simple two-column layout */
-        .image-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin: 20px 0;
+        #about-ceo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
         }
 
-        .image-container img {
-            width: 80%; /* Make images slightly smaller */
+        #about-ceo h2 {
+            font-size: 2.5em;
             margin-bottom: 10px;
         }
 
-        @media (min-width: 600px) {
-            .image-container img {
-                width: 48%; /* Two images in a row for screens wider than 600px */
-            }
-            .home-button {
-            display: block;
-            margin: 10px auto; /* Center the button */
-            padding: 10px 20px;
-            background-color: grey; /* Change button color to grey */
-            color: black;
-            text-align: center;
-            text-decoration: none;
-            font-size: 2rem; /* Adjust the font size to 2rem */
-            border: none;
-            cursor: pointer;
+        #about-ceo p {
+            font-size: 1.2em;
+            margin: 0 auto;
+            width: 80%;
         }
+
+        /* Responsive Design */
+        @media (min-width: 600px) {
+            .card-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
         }
     </style>
 </head>
 <body>
     <a href="index.html" class="home-button">Home</a>
-    <h1>Our Work</h1>
+    <hr style="height: 3px;"/>
+    <h1 class="text-background">DISCOVER Our Work</h1>
 
     <h2>PAST EVENTS</h2>
-
-    <div class="image-container">
-        <img src="images/pe1.jpg" alt="Event 1">
-        <img src="images/pe62k23.jpg" alt=Event 2">
-        <img src="images/pe4.jpg" alt="Event 3">
-        <img src="images/pe2.jpg" alt="Event 4">
+    <hr style="height: 3px;"/>
+    <div class="card-container">
+        <!-- Event 1 Card -->
+        <div class="card">
+            <video controls>
+                <source src="videos/sixyears.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="card-content">
+                <h3>16 Years of celebration kwesta</h3>
+                <p>His music is timeless, his voice distinct and his fashion is impeccable. 
+                    venue: Carnival city.</p>
+            </div>
+        </div>
+        <!-- Event 2 Card -->
+        <div class="card">
+            <img src="images/pe1.jpg" alt="Event 2">
+            <div class="card-content">
+                <h3>The Ekurhuleni Easter Experience</h3>
+                <p>The Ekurhuleni Easter Experience is one of the biggest events in SA, emerging from the successful Tembisa Easter Dj Festiva</p>
+            </div>
+        </div>
+        <!-- Event 3 Card -->
+        <div class="card">
+            <img src="images/pe4.jpg" alt="Event 3">
+            <div class="card-content">
+                <h3>The Ekurhuleni Summer Splash</h3>
+                <p>The Ekurhuleni Summer Splash is an annual music and cultural festival held in Ekurhuleni, South Africa. The event showcases local talent and offers a vibrant atmosphere for attendees</p>
+            </div>
+        </div>
+        <!-- Event 4 Card -->
+        <div class="card">
+            <img src="images/pe7.jpg" alt="Event 4">
+            <div class="card-content">
+                <h3>Total Praise And Worship With Lebo Sekgobela</h3>
+                <p>Lebo's music reaches and heals millions of people in Africa and abroad..</p>
+            </div>
+        </div>
     </div>
 
     <h2>SAMPLE PLANS</h2>
-
-    <div class="image-container">
-        <img src="images/Baplan1.png" alt="Plan 1">
-        <img src="images/POPUP 3SEP.png" alt="Plan 2">
-        <img src="images/P SUN ENTRY MAN.png" alt="Plan 3">
-        <img src="images/U'R SITE.png "alt="ur site plan">
+    <hr style="height: 3px;"/>
+    <div class="card-container">
+        <div class="card">
+            <img src="images/Baplan1.png" alt="Plan 1">
+            <div class="card-content">
+                <h3>Breast And Cancer Awareness</h3>
+                <p>Here’s a preview of our first sample plan. A clear blueprint of the track</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/POPUP 3SEP.png" alt="Plan 2">
+            <div class="card-content">
+                <h3>Dreamslands Sprong Pop-Up</h3>
+                <p>This plan showcases some of the event strategies for the coming season.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/P SUN ENTRY MAN.png" alt="Plan 3">
+            <div class="card-content">
+                <h3>Pizaa Sunday </h3>
+                <p>Detailed overview of our entry management plan for large-scale events.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/U'R SITE.png" alt="Plan 4">
+            <div class="card-content">
+                <h3>U'R SITE PLAN</h3>
+                <p>This plan demonstrates how we plan to handle site management during events.</p>
+            </div>
+        </div>
     </div>
 
     <h2>ON SITE</h2>
-
-    <div class="image-container">
-        <img src="images/ceo1.jpg" alt="Written 1">
-        <img src="images/ceo5.jpg" alt="Written 2">
-        <img src="images/ceo3.jpg" alt="Written 3">
-        <img src="images/ceo4.jpg" alt="Written 4">
+    <hr style="height: 3px;"/>
+    <div class="card-container">
+        <div class="card">
+            <img src="images/ceo1.jpg" alt="On Site 1">
+            <div class="card-content">
+                <h3>CEO Event 1</h3>
+                <p>Capturing moments from our CEO's presence at the event.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/ceo5.jpg" alt="On Site 2">
+            <div class="card-content">
+                <h3>CEO Event 2</h3>
+                <p>Insights from our CEO during the live discussions.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/ceo3.jpg" alt="On Site 3">
+            <div class="card-content">
+                <h3>CEO Event 3</h3>
+                <p>Behind-the-scenes look at the planning process led by our CEO.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/ceo4.jpg" alt="On Site 4">
+            <div class="card-content">
+                <h3>CEO Event 4</h3>
+                <p>CEO sharing insights on key strategies at the event.</p>
+            </div>
+            
+        </div>
+        
     </div>
+    <hr style="height: 3px;"/>
+
+    <!-- About CEO Section -->
+    <section id="about-ceo">
+        <img src="images/ceocover.jpg" alt="CEO Photo">
+        <h2>About Our CEO</h2>
+        <p>Our CEO,Mr DP, has been the driving force behind our company's growth and success. With over 12 years of experience in the industry, DP has led numerous successful projects and is passionate about innovation, sustainability, and leadership. Under his guidance, we have consistently pushed the boundaries of what is possible, helping our clients achieve their goals in unique and impactful ways.</p>
+    </section>
 
 </body>
 </html>

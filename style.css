@@ -14,132 +14,124 @@ html {
   scroll-behavior: smooth;
 }
 /* End of Common Styles */
-
-/* Navbar */
+/* General Navbar Styles */
 .navbar {
-  width: 100%;
-  height: 8rem;
-  background-color: rgba(0, 0, 0, 0.9);
-  position: fixed;
-  top: -8rem;
-  padding: 3rem;
-  z-index: 10;
-  animation: animateNavbar 1s 0.5s forwards;
-  transition: height 0.5s;
-}
-
-.navbar.change {
-  height: 100vh;
-}
-
-@keyframes animateNavbar {
-  0% {
-    top: -8rem;
-  }
-  100% {
-    top: 0;
-  }
-}
-
-.navbar-logo {
-  position: absolute;
-  top: 1.5rem;
-  left: 4rem;
-}
-
-.navbar-logo a {
-  font-family: "MADE Soulmaze", sans-serif;
-  font-size: 2.5rem;
-  color: #eee;
-  letter-spacing: 0.1rem;
-}
-
-.navbar-logo span {
-  font-size: 3.5rem;
-  font-weight: bold;
-  color: #9e0e09;
-  font-family: "MADE Soulmaze";
-}
-
-.menu {
-  width: 4rem;
-  height: 4rem;
-  position: fixed;
-  z-index: 500;
-  top: 2rem;
-  right: 4rem;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  cursor: pointer;
-}
-
-.line {
-  width: 100%;
-  height: 0.2rem;
-  background-color: #eee;
-  transition: transform 0.3s;
-}
-
-.line-1 {
-  width: 50%;
-}
-
-.line-3 {
-  width: 50%;
-  margin-left: auto;
-}
-
-.change .line-1 {
-  transform: translate(100%, 1rem) rotate(-35deg);
-  transform-origin: right;
-}
-
-.change .line-3 {
-  transform: translateY(-1rem) rotate(35deg);
-  transform-origin: right;
-}
-
-.nav-list {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.2s;
+  padding: 20px;
+  background-color: #333;  /* Dark background */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
-.change .nav-list {
-  opacity: 1;
-  visibility: visible;
-  transition: all 0.7s 0.5s;
-}
-
-.nav-link {
-  font-family: "MADE Soulmaze", sans-serif;
-  font-size: 4rem;
-  letter-spacing: 0.3rem;
+.navbar .logo a {
   color: #fff;
-  margin: 2rem 0;
-  transition: color 0.4s;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.nav-link:hover {
-  color: #9e0e09;
+.nav-links {
+  list-style: none;
+  display: flex;
 }
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ffcc00;  /* Highlight color on hover */
+}
+
+/* Mobile menu styles */
+.menu {
+  display: none; /* Hidden by default */
+  cursor: pointer;
+  flex-direction: column;
+}
+
+.menu .line {
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #333;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .nav-links li {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .menu {
+    display: flex;  /* Show the hamburger menu on mobile */
+  }
+
+  .navbar.change .nav-links {
+    display: flex;
+  }
+
+  .navbar.change .menu .line-1 {
+    transform: rotate(-45deg);
+    position: relative;
+    top: 10px;
+  }
+
+  .navbar.change .menu .line-2 {
+    opacity: 0;
+  }
+
+  .navbar.change .menu .line-3 {
+    transform: rotate(45deg);
+    position: relative;
+    top: -10px;
+  }
+}
+
+
 /*  End of Navbar */
 
 /* Section 1 */
+
+/* Apply to the container or the section with the background image */
 .section-1 {
+  background-image: url(images/background.png);  /* Replace with your image path */
+  background-size: cover;  /* Ensures the image covers the container */
+  background-position: center;  /* Keeps the image centered */
+  background-attachment: fixed; /* Optional: Keeps the background fixed when scrolling */
+  height: 100vh;  /* Ensure the section takes the full height of the viewport */
+  width: 100%; /* Ensures the section takes up the full width */
+}
+
+/* .section-1 {
   width: 100%;
   height: 100vh;
-  background: url(images/dark-bg.jpeg) no-repeat;
+  background: url(images/background.png) no-repeat;
   background-size: cover;
-}
+} */
 
 .banner {
   position: absolute;
@@ -255,13 +247,15 @@ html {
   width: 30rem;
   height: 6rem;
   background: linear-gradient(to right, #9b0e0e, #7a1010);
-  color:white;
+  color: white;
+  text-transform: uppercase;  /* Optional: makes the text uppercase */
+  font-weight: bold; 
   font-size: 2rem;
   text-transform: uppercase;
   border-radius: 3rem;
-  border: 0.1rem solid #800505;
-  box-shadow: 1rem 2rem 3rem rgba(0, 0, 0, 0.185);
-  text-shadow: 0.6rem 0.3rem 0.2rem rgba(0, 0, 0, 0.512);
+  border: 0.1rem solid #fbfbfb;
+  box-shadow: 1rem 2rem 3rem rgba(255, 244, 244, 0.185);
+  text-shadow: 0.6rem 0.3rem 0.2rem rgba(46, 46, 46, 0.421);
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
@@ -269,7 +263,11 @@ html {
   overflow: hidden;
   animation: fadeAnimation 1s 2s forwards;
 }
-
+.banner-btn a {
+  color: white;              /* Ensures link text is white */
+  text-decoration: none;     /* Removes underline from the link */
+  display: inline-block;
+}
 .banner-btn::before {
   content: "";
   width: 100%;
@@ -291,127 +289,144 @@ html {
 
 /* Section 2 */
 .section-2 {
-  width: 100%;
-  height: 100vh;
-  background-color: #222020;
   display: flex;
-  align-items: center;
-  padding: 0 10rem;
-  position: relative;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center align items horizontally */
+  justify-content: center; /* Center align items vertically */
+  text-align: center; /* Center text */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f9f9f9; /* Light background for visibility */
+  width: 100%; /* Ensure full width of the screen */
+  max-width: 1200px; /* Limit max width */
+  margin: 0 auto; /* Center section on page */
 }
 
-.section-heading {
-  font-size: 10rem;
-  font-family: "Oswald", sans-serif;
-  font-weight: 300;
-  color: #ddd;
-  margin-right: 4rem;
+.section-2 img {
+  max-width: 60%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 20px; /* Add spacing below the image */
+  border-radius: 8px; /* Optional: Rounded corners for image */
 }
 
-.section-heading-line {
-  width: 15rem;
-  height: 0.2rem;
-  background-color: #ddd;
+.section-2 video {
+  max-width: 80%; /* Make the video responsive */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 20px; /* Add spacing below the video */
+  border-radius: 8px; /* Optional: Rounded corners for video */
+  outline: none; /* Remove focus outline */
 }
 
-.video-wrapper {
-  width: 50rem;
-  height: 50rem; /* Set the size to 50 by 50 rem */
-  position: absolute;
-  top: 5rem;
-  right: 15rem;
-  box-shadow: 2rem 2rem 4rem rgba(0, 0, 0, 0.7);
-  overflow: hidden;
+.section-2 p {
+  font-size: 20px; /* Readable font size */
+  line-height: 1.6; /* Proper line spacing */
+  margin: 20px 0; /* Add vertical spacing */
+  color: #555; /* Subtle color for readability */
 }
 
-
-.video-wrapper:hover .controls {
-  transform: translateY(0);
-}
-
-.video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.3;
-  transition: opacity 0.3s;
-}
-
-.controls {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  transform: translateY(calc(100% - 0.4rem));
-  transition: transform 0.4s;
-}
-
-.video-bar-wrapper {
-  width: 100%;
-  height: 0.7rem;
-  background-color: #000;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
+/* Video Controls */
 .video-bar {
-  height: 100%;
-  width: 0;
-  background-color: #d30819;
-  transition: width 0.2s linear;
-}
-
-.buttons {
-  padding: 2rem 1rem 1rem 1rem;
+  width: 0%; /* Initial progress width */
+  height: 5px;
+  background: #00f; /* Progress bar color */
+  margin-top: 10px;
+  transition: width 0.2s ease; /* Smooth animation */
+  border-radius: 2.5px; /* Rounded bar edges */
 }
 
 .buttons button {
   background: none;
   border: none;
+  font-size: 24px;
   cursor: pointer;
+  color: #333;
+  margin: 10px;
 }
 
-.buttons i {
-  width: 3rem;
-  height: 3rem;
-  font-size: 2.8rem;
+.buttons button:hover {
+  color: #007BFF; /* Change color on hover */
+}
+
+/* Navbar Styles (Optional if Needed) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
   color: #fff;
 }
 
-.section-2-paragraph {
-  width: 50rem; /* Set the width to match the video */
-  position: absolute;
-  bottom: 8rem;
-  right: 15rem;
-  font-size: 2rem;
-  line-height: 1.5;
-  color: #ddd;
-  border-top: 0.3rem double #aaa;
-  border-bottom: 0.3rem double #aaa;
-  padding: 2rem;
+.menu {
+  cursor: pointer;
+}
+
+.navbar .change {
+  display: block; /* Example for toggling visibility */
+}
+
+/* Swiper Container */
+.swiper-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.swiper-slide {
+  background: #ddd;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: justify;
-  text-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  font-size: 20px;
+  color: #333;
 }
 
 
-.fa-quote-left {
-  align-self: flex-start;
-  font-size: 5rem;
-  color: #bbb;
-  margin-bottom: 2rem;
+
+/* Adjusting for screens smaller than 768px */
+@media (max-width: 768px) {
+  .section-2 {
+    padding: 10px;  /* Reduced padding for smaller screens */
+    flex-direction: column;  /* Stack items vertically */
+    align-items: center;  /* Center items */
+  }
+
+  .section-2 img {
+    width: 60%;  /* Make the image smaller on small screens */
+    height: auto;  /* Maintain aspect ratio */
+  }
+
+  .section-2 .video {
+    width:60%;  /* Make the video take full width */
+    max-width: 70%;  /* Prevent overflow */
+  }
+
+  .section-2 p {
+    font-size: 20px;  /* Reduce font size for smaller screens */
+  }
+  
 }
 
-.fa-quote-right {
-  align-self: flex-end;
-  font-size: 5rem;
-  color: #bbb;
-}
+/* For screens even smaller than 480px */
+@media (max-width: 480px) {
+  .section-2 {
+    padding: 5px;  /* Further reduce padding for small screens */
+  }
 
+  .section-2 img {
+    width: 60%;  /* Make the image smaller */
+  }
+
+  .section-2 p {
+    font-size: 20px;  /* Further reduce font size for mobile */
+  }
+}
+.section-2 h2 {
+  font-size: 36px; /* Adjust size to make it larger */
+  font-weight: bold; /* Make the text bold */
+  color: #333; /* Optional: set color */
+  margin-bottom: 20px; /* Optional: add space below the h2 */
+}
 /* End of Section 2 */
 
 /* Section 3 */
@@ -449,7 +464,7 @@ html {
 }
 
 .pricing-card-heading {
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: 300;
   color: #fff;
   width: 100%;
@@ -556,7 +571,7 @@ html {
 }
 
 .pricing-card-back a {
-  font-size: 2.5rem;
+  font-size: 5rem;
   color: #fff;
 }
 
@@ -620,7 +635,11 @@ background-color: #5f0303;
   align-items: center;
   padding: 0 10rem;
 }
-
+.section-4 h1{
+  color:white;
+  font-weight: bold;
+  font-size: 4rem;
+}
 .contact-wrapper {
   width: 80%;
   display: flex;
@@ -641,7 +660,7 @@ background-color: #5f0303;
 
 .contact-details i {
   font-size: 5rem;
-  color: #7a1010;
+  color: #f1ebeb;
 }
 
 .contact-details h3 {
@@ -937,3 +956,101 @@ background-color: #5f0303;
   }
 }
 /* End of Responsive */
+
+/* services section */
+/* Add styles for Services Section */
+#services {
+  padding: 50px 0;
+  background-color: #f4f4f4;
+}
+
+#services .section-heading {
+  text-align: center;
+  font-size: 3rem; /* Reduced for better fit */
+}
+
+#services .section-heading-line {
+  width: 100px;
+  height: 2px;
+  margin: 10px auto;
+  background-color: #ff6347; /* Change color to match your theme */
+}
+
+.services-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.service {
+  width: 30%; /* Ensures each service takes 30% of the screen on desktop */
+  margin: 20px;
+  background-color: #fac6c6;
+  padding: 15px; /* Reduced padding */
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.service h3 {
+  font-size: 1.8rem; /* Reduced font size for titles on desktop */
+  color: #333;
+}
+
+.service p {
+  font-size: 1.4rem; /* Reduced font size for descriptions */
+  color: #666;
+}
+
+/* Responsive Design for tablets and smaller screens */
+@media (max-width: 768px) {
+  #services .section-heading {
+    font-size: 2.5rem; /* Slightly smaller heading for tablets */
+  }
+
+  .service {
+    width: 45%; /* Service takes 45% of the width on smaller screens */
+    margin: 10px; /* Adjusted margin for smaller screens */
+  }
+
+  .service h3 {
+    font-size: 1.6rem; /* Smaller heading font size for tablets */
+  }
+
+  .service p {
+    font-size: 1.3rem; /* Smaller text for descriptions */
+  }
+}
+
+/* Responsive Design for mobile screens */
+@media (max-width: 480px) {
+  #services .section-heading {
+    font-size: 2rem; /* Even smaller heading font size for mobile */
+  }
+
+  .service {
+    width: 90%; /* Service takes 90% of the width on mobile */
+    margin: 10px 0; /* Reduced margin for mobile */
+  }
+
+  .service h3 {
+    font-size: 1.5rem; /* Smaller title font for mobile */
+  }
+
+  .service p {
+    font-size: 1.2rem; /* Smaller text for descriptions on mobile */
+  }
+}
+#form-response {
+  display: none;
+  margin-top: 10px;
+  font-size: 3rem;
+}
+#form-response.success {
+  color: green;
+  font-size: 5 rem;
+}
+#form-response.error {
+  color: red;
+  font-size: 5 rem;
+}
